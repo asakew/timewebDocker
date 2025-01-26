@@ -7,11 +7,18 @@ import (
 )
 
 func main() {
-	engine := html.New("./views", ".html")
+	engine := html.New("./web/templates", ".html")
 
 	app := fiber.New(fiber.Config{
 		Views: engine,
 	})
+
+	// add static folder
+	app.Static(
+		"/static", // mount address
+		"./web",   // path to the file folder
+	)
+
 	app.Get("/", func(c *fiber.Ctx) error {
 		// Render index template
 		return c.Render("index", fiber.Map{

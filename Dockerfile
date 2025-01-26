@@ -1,4 +1,4 @@
-ARG GOLANG_VERSION=1.21-bookworm
+ARG GOLANG_VERSION=1.23-bookworm
 ARG DEBIAN_VERSION=bookworm-slim
 
 FROM golang:$GOLANG_VERSION as builder
